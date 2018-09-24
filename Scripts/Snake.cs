@@ -4,44 +4,22 @@ using UnityEngine;
 
 public class Snake : MonoBehaviour
 {
-    public GameObject snakePrefab;
-    public Snake head;
-    public Snake tail;
-    public int NESW;
-    public Vector2 nextPos;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Snake next;
 
-    void Movement()
+    public void Setnext(Snake IN)
     {
-        GameObject temp;
-        nextPos = head.transform.position;
-
-        switch(NESW)
-        {
-            case 0:
-                nextPos = new Vector2(nextPos.x, nextPos.y + 1);
-                break;
-            case 1:
-                nextPos = new Vector2(nextPos.x + 1, nextPos.y);
-                break;
-            case 2:
-                nextPos = new Vector2(nextPos.x, nextPos.y - 1);
-                break;
-            case 3:
-                nextPos = new Vector2(nextPos.x -1, nextPos.y + 1);
-                break;
-
-
-        }
-
+        next = IN;
     }
+
+    public Snake GetNext()
+    {
+        return next;
+    }
+
+    public void RemoveTail()
+    {
+        Destroy(this.gameObject);
+    }
+
 }
